@@ -35,4 +35,19 @@ public class ResponsibilityServiceImpl implements ResponsibilityService {
         return savedResponsibilityDto;
 
     }
+
+    @Override
+    public ResponsibilityDto getResponsibilityById(Long responsibilityId) {
+        Responsibility responsibility = responsibilityRepository.findById(responsibilityId).get();
+
+        ResponsibilityDto responsibilityDto = new ResponsibilityDto(
+                responsibility.getId(),
+                responsibility.getResponsibilityCode(),
+                responsibility.getResponsibilityDescription(),
+                responsibility.getSystemSafetyConstraintCode()
+        );
+
+        return responsibilityDto;
+
+    }
 }

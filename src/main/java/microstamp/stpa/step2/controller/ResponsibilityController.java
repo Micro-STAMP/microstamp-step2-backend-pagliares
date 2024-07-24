@@ -19,4 +19,11 @@ public class ResponsibilityController {
         ResponsibilityDto savedResponsibilityDto = responsibilityService.saveResponsibility(responsibilityDto);
         return new ResponseEntity<ResponsibilityDto>(savedResponsibilityDto, HttpStatus.CREATED);
     }
+
+    // Build Get Responsibility REST API
+    @GetMapping("{id}")
+    public ResponseEntity<ResponsibilityDto> getResponsibility(@PathVariable("id") Long responsibilityId){
+        ResponsibilityDto apiResponseDto = responsibilityService.getResponsibilityById(responsibilityId);
+        return new ResponseEntity<>(apiResponseDto, HttpStatus.OK);
+    }
 }
